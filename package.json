@@ -1,0 +1,20 @@
+{
+  "name": "sls-page",
+  "version": "1.0.0",
+  "description": "js实现的分页算法，可运用于任何框架。",
+  "main": "./dist/sls-page.js",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rm -rf ./dist/* && rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "赛冷思",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-watch": "^2.5.0"
+  },
+  "dependencies": {
+    "rollup": "^0.37.0"
+  }
+}

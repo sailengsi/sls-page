@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>sls-page.js示例</title>
+		<link rel="stylesheet" href="//www.sailengsi.com/Public/common/other/bs/css/bootstrap.min.css">
+	</head>
+	<body>
+		
+		<h2>自定义  页码  文本</h2>
+		<ul class="pagination"></ul>
+	
+
+		<script src='//www.sailengsi.com/Public/common/other/jq/jquery.min.js'></script>
+		<script src='../../dist/sls-page.js'></script>
+		<script>
+			//提前定义好每页对应的文本，但如果页码太多的话需要定义很多，不建议这么做
+			var pageText=['one','two','three','four','five','six','seven','eight','nine'];
+
+
+			var pageContainer=$('.pagination');
+
+			var slsPage=new SlsPage({
+				page_total:20,
+				page_size:3,
+
+
+				//自定义首位上下页文本
+				//也可以直接在callback逻辑中写死
+				page_first_text:'<<',
+				page_last_text:'>>',
+				page_prev_text:'<',
+				page_next_text:'>',
+
+
+				callback:function(infos){
+					// console.log(infos);
+				
+					var str='';
+					//为false，代表首页没有了
+					if (infos.page_first.page!==false) {
+						str+='<li data-page='+infos.page_first.page+'><a href="javascript:;">'+infos.page_first.text+'</a></li>';
+					}
+					//为false，代表上一页没有了
+					if (infos.page_prev.page!==false) {
+						str+='<li data-page='+infos.page_prev.page+'><a href="javascript:;">'+infos.page_prev.text+'</a></li>';
+					}
+					//中间的页码列表
+					for (var i = 0; i < infos.page_lists.length; i++) {
+						var cur='';
+						if (infos.page_lists[i].page==infos.page_cur) {
+							cur=' active';
+						}
+						str+='<li data-page='+infos.page_lists[i].page+' class="'+cur+'"><a href="javascript:;">'+pageText[infos.page_lists[i].page-1]+'</a></li>';
+					}
+					//为false，代表下一页没有了
+					if (infos.page_next.page!==false) {
+						str+='<li data-page='+infos.page_next.page+'><a href="javascript:;">'+infos.page_next.text+'</a></li>';
+					}
+					//为false，代表尾页没有了
+					if (infos.page_last.page!==false) {
+						str+='<li data-page='+infos.page_last.page+'><a href="javascript:;">'+infos.page_last.text+'</a></li>';
+					}
+					pageContainer.html(str);
+
+					// console.log('当前更新结束');
+				}
+			});
+
+			pageContainer.on('click','li',function(){
+				var curPage=parseInt($(this).data('page'));
+				slsPage.setCurPage(curPage);
+			});
+		</script>
+	</body>
+</html>

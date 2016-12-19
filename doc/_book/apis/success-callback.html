@@ -1,0 +1,361 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>callback · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="cur-page-error-callback.html" />
+    
+    
+    <link rel="prev" href="callbacks.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../parts/installed.html">
+            
+                <a href="../parts/installed.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../parts/start.html">
+            
+                <a href="../parts/start.html">
+            
+                    
+                    开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../demos/demos.html">
+            
+                <a href="../demos/demos.html">
+            
+                    
+                    示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="callbacks.html">
+            
+                <a href="callbacks.html">
+            
+                    
+                    回调
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="success-callback.html">
+            
+                <a href="success-callback.html">
+            
+                    
+                    callback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="cur-page-error-callback.html">
+            
+                <a href="cur-page-error-callback.html">
+            
+                    
+                    curPageErrorCallback
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >callback</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6210;&#x529F;&#x56DE;&#x8C03;">&#x6210;&#x529F;&#x56DE;&#x8C03;</h1>
+<p>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x53C2;&#x6570;pageinfos,&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;</p>
+<ul>
+<li>page_count //number &#x603B;&#x9875;&#x6570;</li>
+<li>page_cur     //number  &#x5F53;&#x524D;&#x9875;</li>
+<li>page_first //object<ul>
+<li>page    //number or false  &#x9996;&#x9875;&#x9875;&#x7801;,&#x5F53;&#x6CA1;&#x6709;&#x9996;&#x9875;&#x65F6;&#xFF0C;&#x4E3A;false</li>
+<li>text //string    &#x9996;&#x9875;&#x6587;&#x672C;</li>
+</ul>
+</li>
+<li>page_prev<ul>
+<li>page    //number or false  &#x4E0A;&#x4E00;&#x9875;&#x9875;&#x7801;,&#x5F53;&#x6CA1;&#x6709;&#x4E0A;&#x4E00;&#x9875;&#x65F6;&#xFF0C;&#x4E3A;false</li>
+<li>text //string    &#x4E0A;&#x4E00;&#x9875;&#x6587;&#x672C;</li>
+</ul>
+</li>
+<li>page_next<ul>
+<li>page    //number or false  &#x4E0B;&#x4E00;&#x9875;&#x9875;&#x7801;,&#x5F53;&#x6CA1;&#x6709;&#x4E0B;&#x4E00;&#x9875;&#x65F6;&#xFF0C;&#x4E3A;false</li>
+<li>text //string    &#x4E0B;&#x4E00;&#x9875;&#x6587;&#x672C;</li>
+</ul>
+</li>
+<li>page_last<ul>
+<li>page    //number or false  &#x5C3E;&#x9875;&#x9875;&#x7801;,&#x5F53;&#x6CA1;&#x6709;&#x5C3E;&#x9875;&#x65F6;&#xFF0C;&#x4E3A;false</li>
+<li>text //string    &#x5C3E;&#x9875;&#x6587;&#x672C;</li>
+</ul>
+</li>
+<li>page_lists //array &#x9875;&#x7801;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;<ul>
+<li>page //number &#x9875;&#x7801;</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x8981;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;page_lists    </p>
+</blockquote>
+<h3 id="&#x5F53;&#x603B;&#x9875;&#x6570;&#x4E3A;10&#xFF0C;&#x5C55;&#x793A;&#x9875;&#x7801;&#x4E2A;&#x6570;&#x4E3A;5">&#x5F53;&#x603B;&#x9875;&#x6570;&#x4E3A;10&#xFF0C;&#x5C55;&#x793A;&#x9875;&#x7801;&#x4E2A;&#x6570;&#x4E3A;5</h3>
+<p>&#x5F53;&#x524D;&#x9875;&lt;=3&#xFF0C;&#x65F6;&#xFF0C;&#x6570;&#x7EC4;&#x503C;&#x662F;&#xFF1A;</p>
+<pre><code>[{page:1},{page:2},{page:3},{page:4},{page:5}]
+</code></pre><p>&#x5F53;&#x524D;&#x9875;&#x4E3A;5&#x65F6;&#xFF0C;&#x6570;&#x7EC4;&#x503C;&#x662F;&#xFF1A;</p>
+<pre><code>[{page:3},{page:4},{page:5},{page:6},{page:7}]
+</code></pre><p>&#x5F53;&#x524D;&#x9875;&gt;=8&#x65F6;&#xFF0C;&#x6570;&#x7EC4;&#x503C;&#x662F;&#xFF1A;</p>
+<pre><code>[{page:6},{page:7},{page:8},{page:9},{page:10}]
+</code></pre><h3 id="&#x5F53;&#x603B;&#x9875;&#x6570;&#x5C55;&#x793A;&#x9875;&#x7801;&#x4E2A;&#x6570;">&#x5F53;&#x603B;&#x9875;&#x6570;&lt;=&#x5C55;&#x793A;&#x9875;&#x7801;&#x4E2A;&#x6570;</h3>
+<p>&#x6570;&#x7EC4;&#x7684;&#x957F;&#x5EA6;&#x7B49;&#x603B;&#x9875;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x9875;&#x7801;&#x59CB;&#x7EC8;&#x662F;&#x4ECE;1&#x5F00;&#x59CB;</p>
+<pre><code>[{page:1},...]
+</code></pre><blockquote>
+<p>&#x5F53;&#x524D;&#x9875;&#x7801;&#x7B49;&#x4E8E;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684;page&#x5C5E;&#x6027;&#x65F6;&#xFF0C;&#x6B64;&#x5143;&#x7D20;&#x4F1A;&#x591A;&#x4E00;&#x4E2A;cur&#x5C5E;&#x6027;,&#x503C;&#x4E3A;true&#x3002;</p>
+<p>&#x53EF;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x503C;&#x7ED9;&#x5F53;&#x524D;&#x9875;&#x8BBE;&#x7F6E;&#x9AD8;&#x4EAE;&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;page_cur&#x5C5E;&#x6027;&#x548C;&#x5143;&#x7D20;&#x7684;page&#x5339;&#x914D;&#x3002;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="callbacks.html" class="navigation navigation-prev " aria-label="Previous page: 回调">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="cur-page-error-callback.html" class="navigation navigation-next " aria-label="Next page: curPageErrorCallback">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"callback","level":"1.5.1","depth":2,"next":{"title":"curPageErrorCallback","level":"1.5.2","depth":2,"path":"apis/cur-page-error-callback.md","ref":"apis/cur-page-error-callback.md","articles":[]},"previous":{"title":"回调","level":"1.5","depth":1,"path":"apis/callbacks.md","ref":"apis/callbacks.md","articles":[{"title":"callback","level":"1.5.1","depth":2,"path":"apis/success-callback.md","ref":"apis/success-callback.md","articles":[]},{"title":"curPageErrorCallback","level":"1.5.2","depth":2,"path":"apis/cur-page-error-callback.md","ref":"apis/cur-page-error-callback.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"apis/success-callback.md","mtime":"2016-12-19T12:51:18.342Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-12-19T12:51:34.078Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
