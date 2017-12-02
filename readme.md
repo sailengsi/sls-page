@@ -1,8 +1,8 @@
 ## 演示
 
-### GitHub：[https://sailengsi.github.io/sls-page/demo//](https://sailengsi.github.io/sls-page/demo//)
-### Gitee：[https://sailengsi.gitee.io/sls-page/demo//](https://sailengsi.gitee.io/sls-page/demo//)
-### Coding：[https://sailengsi.coding.me/sls-page/demo//](https://sailengsi.coding.me/sls-page/demo//)
+### GitHub：[https://sailengsi.github.io/sls-page/demo/](https://sailengsi.github.io/sls-page/demo/)
+### Gitee：[https://sailengsi.gitee.io/sls-page/demo/](https://sailengsi.gitee.io/sls-page/demo/)
+### Coding：[https://sailengsi.coding.me/sls-page/demo/](https://sailengsi.coding.me/sls-page/demo/)
 
 ## 文档
 
